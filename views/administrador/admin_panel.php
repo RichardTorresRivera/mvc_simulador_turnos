@@ -1,5 +1,5 @@
 <?php
-/*require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../config.php';
 
 try {
     $pdo = conectarDB();
@@ -15,8 +15,7 @@ try {
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
-}*/
-
+}
 
 /*
 
@@ -39,6 +38,8 @@ $turnos = obtenerTurnos();
 */
 ?>
 
+<!-- HEADER -->
+<?php include '../header.php' ?>
 
 <header>
     <?php include 'navbar_admin.php'; ?>
@@ -104,3 +105,6 @@ $turnos = obtenerTurnos();
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
+<?php include 'footer.php' ?>

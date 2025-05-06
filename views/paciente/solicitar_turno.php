@@ -1,9 +1,9 @@
-<?
+<!-- HEADER -->
+<?php include '../header.php' ?>
 
-?>
-
+<!-- SOLICITAR TURNO -->
 <header>
-    <?php include 'navbar_paciente.php'; ?>
+    <?php session_start(); include 'navbar_paciente.php'; ?>
 </header>
 
 <section>
@@ -41,7 +41,7 @@
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
                     <button type="submit" class="btn btn-danger">
-                        <a href="paciente/ver_psicologos.php" class="text-light text-decoration-none">
+                        <a href="ver_psicologos.php" class="text-light text-decoration-none">
                             Regresar
                         </a>
                     </button>
@@ -50,3 +50,6 @@
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
+<?php include '../footer.php' ?>

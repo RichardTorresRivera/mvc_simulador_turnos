@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 */
 ?>
 
+<!-- HEADER -->
+<?php include '../header.php' ?>
+
 <header>
     <?php include 'navbar_admin.php'; ?>
 </header>
@@ -71,3 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
+<?php include 'footer.php' ?>
