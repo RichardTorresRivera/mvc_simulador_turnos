@@ -1,22 +1,23 @@
 <?php
 session_start();
-require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../models/paciente.model.php';
+require_once __DIR__ . '/../../models/medico.model.php';
 
 try {
-    $pdo = conectarDB();
-    
     // Obtener el nombre del paciente
-    $obtener_paciente = $pdo->query("SELECT * FROM pacientes WHERE id = 1");
-    $paciente = $obtener_paciente->fetchAll();
-    if(!empty($paciente)) {
-        $_SESSION['paciente'] = [
-            'nombre' => $paciente[0]['nombre'],
-            'email' => $paciente[0]['email']];
+    $pacienteModel = new Paciente();
+    $emailPaciente = 'juan.lopez@gmail.com';
+
+    $pacienteInfo = $pacienteModel->getByEmail($emailPaciente);
+    if(!empty($pacienteInfo)) {
+        $_SESSION['pacienteInfo'] = [
+            'nombre' => $pacienteInfo['nombre'],
+            'email' => $pacienteInfo['email']];
     }
 
     // Obtener todos los médicos
-    $obtener_medicos = $pdo->query("SELECT * FROM medicos");
-    $medicos = $obtener_medicos->fetchAll();
+    $medicoModel = new Medico();
+    $medicosInfo = $medicoModel->getAll();
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
@@ -35,12 +36,12 @@ try {
     <div class="container">
         <div class="row my-3">
             <div class="col-12">
-                <h1 class="text-center">Bienvenido, <?= htmlspecialchars($_SESSION['paciente']['nombre'])?></h1>
+                <h1 class="text-center">Bienvenido, <?= htmlspecialchars($_SESSION['pacienteInfo']['nombre'])?></h1>
             </div>
         </div>
 
         <div class="row justify-content-center">
-            <?php foreach ($medicos as $medico):?>
+            <?php foreach ($medicosInfo as $medico):?>
                 <div class="col-4 mb-3 d-flex align-items-center justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">

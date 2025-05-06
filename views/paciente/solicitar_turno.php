@@ -3,7 +3,8 @@
 
 <!-- SOLICITAR TURNO -->
 <header>
-    <?php session_start(); include 'navbar_paciente.php'; ?>
+    <?php session_start();
+    include 'navbar_paciente.php'; ?>
 </header>
 
 <section>
@@ -17,6 +18,9 @@
         <div class="row justify-content-center">
             <div class="col-4 d-flex align-items-center justify-content-center">
                 <div class="card" style="width: 25rem;">
+                    <h5 class="card-title"><?= htmlspecialchars($medico["nombre"]) ?></h5>
+                    <h6 class="card-subtitle mb-3 text-body-secondary"><?= htmlspecialchars($medico["especialidad"]) ?>
+                    </h6>
                     <form>
                         <div class="mb-2 p-3">
                             <label for="exampleInputEmail1" class="form-label">Fecha</label>
