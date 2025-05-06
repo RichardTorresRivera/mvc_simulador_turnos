@@ -39,7 +39,7 @@ $turnos = obtenerTurnos();
 ?>
 
 <!-- HEADER -->
-<?php include '../header.php' ?>
+<?php include __DIR__ . '/../header.php' ?>
 
 <header>
     <?php include 'navbar_admin.php'; ?>
@@ -107,4 +107,4 @@ $turnos = obtenerTurnos();
 </section>
 
 <!-- FOOTER -->
-<?php include 'footer.php' ?>
+<?php include __DIR__ . '/../footer.php' ?>

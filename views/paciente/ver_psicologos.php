@@ -26,7 +26,7 @@ try {
 ?>
 
 <!-- HEADER -->
-<?php include '../header.php' ?>
+<?php include __DIR__ . '/../header.php' ?>
 
 <!-- VER PSICÓLOGOS -->
 <header>
@@ -41,9 +41,9 @@ try {
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row">
             <?php foreach ($medicosInfo as $medico): ?>
-                <div class="col-4 mb-3 d-flex align-items-center justify-content-center">
+                <div class="col-3 mb-3 d-flex align-items-center justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($medico["nombre"]) ?></h5>
@@ -62,4 +62,4 @@ try {
 </section>
 
 <!-- FOOTER -->
-<?php include '../footer.php' ?>
+<?php include __DIR__ .  '/../footer.php' ?>

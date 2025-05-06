@@ -7,7 +7,7 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
 
 
 <!-- HEADER -->
-<?php include '../header.php' ?>
+<?php include __DIR__ . '/../header.php' ?>
 
 <!-- SOLICITAR TURNO -->
 <header>
@@ -16,7 +16,7 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
 
 <section>
     <div class="container">
-        <div class="row my-5">
+        <div class="row my-3">
             <div class="col-12">
                 <h1 class="text-center">Solicitar turno</h1>
             </div>
@@ -50,7 +50,7 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
             </div>
         </div>
 
-        <div class="row my-5">
+        <div class="row my-3">
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
                     <button type="submit" class="btn btn-danger">
@@ -65,4 +65,4 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
 </section>
 
 <!-- FOOTER -->
-<?php include '../footer.php' ?>
+<?php include __DIR__ .  '/../footer.php' ?>
