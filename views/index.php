@@ -9,6 +9,6 @@
     <title>Vista Paciente</title>
 </head>
 <body>
-    <?php include 'paciente/ver_psicologos.php' ?>
+    <?php include 'paciente/ver_psicologos.php'?>
 </body>
 </html>
