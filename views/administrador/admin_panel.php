@@ -54,7 +54,7 @@ $turnos = obtenerTurnos();
 
         <div class="row">
             <div class="col-12">
-                <table border="1" cellpadding="8">
+                <table border="1" cellpadding="8" class="table">
                     <tr>
                         <th>Paciente</th>
                         <th>Médico</th>

@@ -20,7 +20,7 @@
                         <h5 class="card-title">Médico</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Especialidad</h6>
                         <button class="btn btn-primary">
-                            <a href="paciente/solicitar_turno.php" class="text-light">Ver Psicólogos</a>
+                            <a href="paciente/solicitar_turno.php" class="text-light text-decoration-none">Ver Psicólogos</a>
                         </button>
                     </div>
                 </div>
