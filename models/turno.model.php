@@ -55,6 +55,11 @@ class Turno {
         return $stmt->execute([$id_turno]);
     }
 
+    public function cancelar($id_turno) {
+        $stmt = $this->conn->prepare("UPDATE turnos SET estado = 'cancelado' WHERE id = ?");
+        return $stmt->execute([$id_turno]);
+    }
+
     public function estadisticasPorMedico() {
         $stmt = $this->conn->query("
             SELECT m.nombre, COUNT(t.id) as cantidad_turnos

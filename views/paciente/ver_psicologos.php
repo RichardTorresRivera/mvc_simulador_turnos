@@ -3,32 +3,44 @@ session_start();
 require_once __DIR__ . '/../../models/paciente.model.php';
 require_once __DIR__ . '/../../models/medico.model.php';
 
+$mensaje_turno = '';
+$status_class_turno = '';
+if (isset($_GET['msg'])) {
+    $mensaje_turno = htmlspecialchars($_GET['msg']);
+    if (isset($_GET['status']) && $_GET['status'] === 'success') {
+        $status_class_turno = 'alert alert-success';
+    } else {
+        $status_class_turno = 'alert alert-danger';
+    }
+}
+
 try {
-    // Obtener el nombre del paciente
     $pacienteModel = new Paciente();
-    $emailPaciente = 'juan.lopez@gmail.com';
+    $emailPaciente = 'juan.lopez@gmail.com'; 
 
     $pacienteInfo = $pacienteModel->getByEmail($emailPaciente);
     if (!empty($pacienteInfo)) {
         $_SESSION['paciente'] = [
+            'id' => $pacienteInfo['id'],
             'nombre' => $pacienteInfo['nombre'],
             'email' => $pacienteInfo['email']
         ];
+    } else {
+        if (!isset($_SESSION['paciente'])) {
+             die("Error: Paciente no encontrado. Por favor, asegúrate de que el paciente 'juan.lopez@gmail.com' existe en la base de datos o implementa un sistema de login.");
+        }
     }
 
-    // Obtener todos los médicos
     $medicoModel = new Medico();
     $medicosInfo = $medicoModel->getAll();
 
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    die("Error de conexión con la base de datos: " . $e->getMessage());
 }
 ?>
 
-<!-- HEADER -->
 <?php include __DIR__ . '/../header.php' ?>
 
-<!-- VER PSICÓLOGOS -->
 <header>
     <?php include 'navbar_paciente.php'; ?>
 </header>
@@ -37,29 +49,44 @@ try {
     <div class="container">
         <div class="row my-3">
             <div class="col-12">
-                <h1 class="text-center">Bienvenido, <?= htmlspecialchars($_SESSION['pacienteInfo']['nombre']) ?></h1>
+                <h1 class="text-center">Bienvenido, <?= isset($_SESSION['paciente']['nombre']) ? htmlspecialchars($_SESSION['paciente']['nombre']) : "Invitado" ?></h1>
             </div>
         </div>
 
-        <div class="row">
-            <?php foreach ($medicosInfo as $medico): ?>
-                <div class="col-3 mb-3 d-flex align-items-center justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= htmlspecialchars($medico["nombre"]) ?></h5>
-                            <h6 class="card-subtitle mb-3 text-body-secondary">
-                                <?= htmlspecialchars($medico["especialidad"]) ?></h6>
-                            <button class="btn btn-primary">
-                                <a href="./paciente/solicitar_turno.php?nombre=<?= urlencode($medico['nombre']) ?>&especialidad=<?= urlencode($medico['especialidad']) ?>"
-                                    class="text-light text-decoration-none">Solicitar turno</a>
-                            </button>
-                        </div>
+        <?php if ($mensaje_turno): ?>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="<?= $status_class_turno ?>" role="alert">
+                        <?= $mensaje_turno ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="row">
+            <?php if (empty($medicosInfo)): ?>
+                <div class="col-12">
+                    <p class="text-center">No hay médicos disponibles en este momento.</p>
+                </div>
+            <?php else: ?>
+                <?php foreach ($medicosInfo as $medico): ?>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3 d-flex align-items-stretch justify-content-center">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title"><?= htmlspecialchars($medico["nombre"]) ?></h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">
+                                    <?= htmlspecialchars($medico["especialidad"]) ?></h6>
+                                <div class="mt-auto">
+                                    <a href="solicitar_turno.php?medico_id=<?= $medico['id'] ?>&nombre=<?= urlencode($medico['nombre']) ?>&especialidad=<?= urlencode($medico['especialidad']) ?>"
+                                        class="btn btn-primary w-100">Solicitar turno</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <?php include __DIR__ .  '/../footer.php' ?>
