@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-2 p-3 text-center">
                             <button type="submit" class="btn btn-primary">
-                                <a href="paciente/ver_psicologos.php" class="text-light">Crear</a>
+                                <a href="paciente/ver_psicologos.php" class="text-light text-decoration-none">Crear</a>
                             </button>
                         </div>
                     </form>
@@ -41,7 +41,9 @@
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
                     <button type="submit" class="btn btn-danger">
-                        <a href="paciente/ver_psicologos.php" class="text-light">Regresar</a>
+                        <a href="paciente/ver_psicologos.php" class="text-light text-decoration-none">
+                            Regresar
+                        </a>
                     </button>
                 </div>
             </div>

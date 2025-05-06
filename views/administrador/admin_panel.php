@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../config.php';
+/*require_once __DIR__ . '/../../config.php';
 
 try {
     $pdo = conectarDB();
@@ -15,7 +15,7 @@ try {
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
-}
+}*/
 
 
 /*
@@ -91,9 +91,15 @@ $turnos = obtenerTurnos();
                         </tr>
                     <?php endforeach; ?>
                 </table>
-
-                <br>
-                <a href="agregar_medico.php">Agregar nuevo médico</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-2 p-3 text-center">
+                    <button type="submit" class="btn btn-primary">
+                        <a href="agregar_medico.php" class="text-light text-decoration-none">Agregar nuevo médico</a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

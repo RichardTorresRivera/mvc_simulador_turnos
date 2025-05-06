@@ -57,13 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if ($mensaje): ?>
                     <p><strong><?= $mensaje ?></strong></p>
                 <?php endif; ?>
-
-                <a href="admin_panel.php">Volver al panel de turnos</a>
-
+                
                 <div class="row my-5">
                     <div class="col-12">
                         <div class="mb-2 p-3 text-center">
-                            <button type="submit" class="btn btn-danger">Regresar</button>
+                            <button type="submit" class="btn btn-danger">
+                                <a href="admin_panel.php" class="text-light text-decoration-none">Volver al panel de turnos</a>
+                            </button>
                         </div>
                     </div>
                 </div>
