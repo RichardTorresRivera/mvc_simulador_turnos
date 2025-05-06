@@ -54,7 +54,7 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
                     <button type="submit" class="btn btn-danger">
-                        <a href="ver_psicologos.php" class="text-light text-decoration-none">
+                        <a href="../index.php" class="text-light text-decoration-none">
                             Regresar
                         </a>
                     </button>

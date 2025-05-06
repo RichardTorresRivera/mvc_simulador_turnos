@@ -1,17 +1,10 @@
 <?php
-require_once __DIR__ . '/../../config.php';
+session_start();
+require_once __DIR__ . '/../../models/turno.model.php';
 
 try {
-    $pdo = conectarDB();
-
-    // Ejemplo de consulta
-    $stmt = $pdo->query("SELECT * FROM medicos LIMIT 2");
-    $resultados = $stmt->fetchAll();
-
-    foreach ($resultados as $fila) {
-        print_r($fila);
-        echo "<br>";
-    }
+    $turnoModel = new Turno();
+    $turnoInfo = $turnoModel->getAll();
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
@@ -65,10 +58,10 @@ $turnos = obtenerTurnos();
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
-                    <?php foreach ($turnos as $turno): ?>
+                    <?php foreach ($turnoInfo as $turno): ?>
                         <tr>
-                            <td><?= htmlspecialchars($turno['paciente']) ?></td>
-                            <td><?= htmlspecialchars($turno['medico']) ?></td>
+                            <td><?= htmlspecialchars($turno['nombre_paciente']) ?></td>
+                            <td><?= htmlspecialchars($turno['nombre_medico']) ?></td>
                             <td><?= htmlspecialchars($turno['especialidad']) ?></td>
                             <td><?= htmlspecialchars($turno['fecha']) ?></td>
                             <td><?= htmlspecialchars($turno['hora']) ?></td>
@@ -77,11 +70,11 @@ $turnos = obtenerTurnos();
                                 <?php if ($turno['estado'] === 'pendiente'): ?>
                                     <form method="POST" style="display:inline;">
                                         <input type="hidden" name="turno_id" value="<?= $turno['id'] ?>">
-                                        <button type="submit" name="marcar_atendido">Marcar como atendido</button>
+                                        <button type="submit" name="marcar_atendido" class="btn btn-warning">Marcar como atendido</button>
                                     </form>
                                     <form method="POST" style="display:inline;">
                                         <input type="hidden" name="turno_id" value="<?= $turno['id'] ?>">
-                                        <button type="submit" name="marcar_cancelado">Cancelar turno</button>
+                                        <button type="submit" name="marcar_cancelado" class="btn btn-danger">Cancelar turno</button>
                                     </form>
                                 <?php elseif ($turno['estado'] === 'atendido'): ?>
                                     ✔ Atendido
@@ -98,7 +91,7 @@ $turnos = obtenerTurnos();
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
                     <button type="submit" class="btn btn-primary">
-                        <a href="agregar_medico.php" class="text-light text-decoration-none">Agregar nuevo médico</a>
+                        <a href="./administrador/agregar_medico.php" class="text-light text-decoration-none">Agregar nuevo médico</a>
                     </button>
                 </div>
             </div>

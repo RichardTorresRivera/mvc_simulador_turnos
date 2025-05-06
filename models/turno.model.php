@@ -1,5 +1,5 @@
 <?php
-require_once './config.php';
+require_once __DIR__ . '/../config.php';
 
 class Turno {
     private $conn;
@@ -9,7 +9,18 @@ class Turno {
     }
 
     public function getAll() {
-        $stmt = $this->conn->query("SELECT * FROM turnos");
+        $stmt = $this->conn->query("SELECT 
+                t.id,
+                p.nombre AS nombre_paciente,
+                m.nombre AS nombre_medico,
+                m.especialidad,
+                t.fecha,
+                t.hora,
+                t.estado
+            FROM turnos t
+            JOIN pacientes p ON t.id_paciente = p.id
+            JOIN medicos m ON t.id_medico = m.id
+            ORDER BY t.fecha DESC, t.hora ASC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

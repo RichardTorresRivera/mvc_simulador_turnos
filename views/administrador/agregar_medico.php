@@ -1,4 +1,5 @@
 <?php
+
 /*
 
 Depende de la función agregarMedico()

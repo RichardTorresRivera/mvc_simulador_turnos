@@ -50,7 +50,7 @@ try {
                             <h6 class="card-subtitle mb-3 text-body-secondary">
                                 <?= htmlspecialchars($medico["especialidad"]) ?></h6>
                             <button class="btn btn-primary">
-                                <a href="solicitar_turno.php?nombre=<?= urlencode($medico['nombre']) ?>&especialidad=<?= urlencode($medico['especialidad']) ?>"
+                                <a href="./paciente/solicitar_turno.php?nombre=<?= urlencode($medico['nombre']) ?>&especialidad=<?= urlencode($medico['especialidad']) ?>"
                                     class="text-light text-decoration-none">Solicitar turno</a>
                             </button>
                         </div>
