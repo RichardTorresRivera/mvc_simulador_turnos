@@ -42,7 +42,7 @@ $turnos = obtenerTurnos();
     <div class="container">
         <div class="row m-5">
             <div class="col-12">
-                <h2 class="text-center">Panel de Turnos</h2>
+                <h1 class="text-center">Panel de Turnos</h1>
             </div>
         </div>
 
