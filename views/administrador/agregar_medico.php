@@ -23,7 +23,7 @@ if (isset($_GET['msg'])) {
     <div class="container">
         <div class="row my-5">
             <div class="col-12">
-                <h2 class="text-center">Agregar Nuevo Médico</h2>
+                <h1 class="text-center">Agregar Nuevo Médico</h1>
             </div>
         </div>
 
