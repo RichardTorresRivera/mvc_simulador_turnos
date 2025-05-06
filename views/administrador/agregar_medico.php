@@ -21,28 +21,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 */
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Agregar Médico</title>
-    <link rel="stylesheet" href="../css/estilo.css">
-</head>
-<body>
-    <h2>Agregar Nuevo Médico</h2>
-    <form method="POST">
-        <label>Nombre del médico:</label>
-        <input type="text" name="nombre" required><br><br>
+<header>
+    <?php include 'navbar_admin.php'; ?>
+</header>
 
-        <label>Especialidad:</label>
-        <input type="text" name="especialidad" required><br><br>
+<section>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+                <h2 class="text-center">Agregar Nuevo Médico</h2>
+            </div>
+        </div>
 
-        <button type="submit">Agregar</button>
-    </form>
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center">
 
-    <?php if ($mensaje): ?>
-        <p><strong><?= $mensaje ?></strong></p>
-    <?php endif; ?>
+                <div class="card" style="width: 25rem;">
+                    <form method="POST">
+                        <div class="mb-2 p-3">
+                            <label class="form-label">Nombre del médico:</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
 
-    <a href="admin_panel.php">Volver al panel de turnos</a>
-</body>
-</html>
+                        <div class="mb-2 p-3">
+                            <label class="form-label">Especialidad:</label>
+                            <input type="text" name="especialidad" class="form-control" required>
+                        </div>
+
+                        <div class="mb-2 p-3 text-center">
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <?php if ($mensaje): ?>
+                    <p><strong><?= $mensaje ?></strong></p>
+                <?php endif; ?>
+
+                <a href="admin_panel.php">Volver al panel de turnos</a>
+
+                <div class="row my-5">
+                    <div class="col-12">
+                        <div class="mb-2 p-3 text-center">
+                            <button type="submit" class="btn btn-danger">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

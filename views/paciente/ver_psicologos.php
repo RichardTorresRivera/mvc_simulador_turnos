@@ -1,28 +1,30 @@
 <?php
-    
+
 ?>
+<header>
+    <?php include 'navbar_paciente.php'; ?>
+</header>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-</head>
+<section>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+                <h1 class="text-center">Bienvenido, Usuario</h1>
+            </div>
+        </div>
 
-<body>
-    <header>
-       <?php include 'navbar_paciente.php';?>
-    </header>
-
-    <h1>Hola Enma</h1>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        <div class="row justify-content-center">
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Médico</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Especialidad</h6>
+                        <button class="btn btn-primary">
+                            <a href="paciente/solicitar_turno.php" class="text-light">Ver Psicólogos</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
