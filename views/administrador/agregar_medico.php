@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST">
                         <div class="mb-2 p-3">
                             <label class="form-label">Nombre del médico:</label>
-                            <input type="text" name="nombre" class="form-control" required>
+                            <input type="text" name="nombre" class="form-control border border-dark" placeholder="Juan Perez" required>
                         </div>
 
                         <div class="mb-2 p-3">
                             <label class="form-label">Especialidad:</label>
-                            <input type="text" name="especialidad" class="form-control" required>
+                            <input type="text" name="especialidad" class="form-control border border-dark" placeholder="Medicina general" required>
                         </div>
 
                         <div class="mb-2 p-3 text-center">

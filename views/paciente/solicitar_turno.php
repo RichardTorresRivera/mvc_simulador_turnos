@@ -33,12 +33,12 @@ $especialidadMedico = isset($_GET['especialidad']) ? htmlspecialchars($_GET['esp
                     <form>
                         <div class="mb-2 px-3 py-2">
                             <label for="exampleInputEmail1" class="form-label">Fecha</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
+                            <input type="date" class="form-control border border-dark" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-2 px-3 py-2">
                             <label for="exampleInputPassword1" class="form-label">Hora</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="time" class="form-control border border-dark" id="exampleInputPassword1">
                         </div>
                         <div class="mb-2 p-2 text-center">
                             <button type="submit" class="btn btn-primary">

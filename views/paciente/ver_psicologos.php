@@ -10,7 +10,7 @@ try {
 
     $pacienteInfo = $pacienteModel->getByEmail($emailPaciente);
     if (!empty($pacienteInfo)) {
-        $_SESSION['pacienteInfo'] = [
+        $_SESSION['paciente'] = [
             'nombre' => $pacienteInfo['nombre'],
             'email' => $pacienteInfo['email']
         ];
