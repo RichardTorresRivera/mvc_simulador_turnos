@@ -1,29 +1,12 @@
 <?php
-session_start();
-require_once __DIR__ . '/../../models/turno.model.php';
-
-$mensaje_panel = '';
-$status_class_panel = '';
-if (isset($_GET['msg'])) {
-    $mensaje_panel = htmlspecialchars($_GET['msg']);
-    if (isset($_GET['status']) && $_GET['status'] === 'success') {
-        $status_class_panel = 'alert alert-success';
-    } else {
-        $status_class_panel = 'alert alert-danger';
-    }
+// AÑADIDO: proteger el acceso directo
+if (!isset($turnoInfo)) {
+    header('Location: ../../controllers/admin.controller.php');
+    exit;
 }
-
-try {
-    $turnoModel = new Turno();
-    $turnoInfo = $turnoModel->getAll();
-
-} catch (PDOException $e) {
-    die("Error de conexión con la base de datos: " . $e->getMessage());
-}
-
 ?>
 
-<?php include __DIR__ . '/../header.php' ?>
+<?php include __DIR__ . '/../header.php'; ?>
 
 <header>
     <?php include 'navbar_admin.php'; ?>
@@ -115,11 +98,11 @@ try {
         <div class="row mt-3">
             <div class="col-12">
                 <div class="mb-2 p-3 text-center">
-                    <a href="agregar_medico.php" class="btn btn-primary">Agregar nuevo médico</a>
+                    <a href="admin.controller.php?view=agregar_medico" class="btn btn-primary">Agregar nuevo médico</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<?php include __DIR__ . '/../footer.php' ?>
+<?php include __DIR__ . '/../footer.php'; ?>

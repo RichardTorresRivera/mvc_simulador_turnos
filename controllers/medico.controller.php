@@ -29,7 +29,7 @@ switch ($action) {
                     $mensaje = "Error de base de datos al agregar el médico.";
                 }
             }
-            header("Location: ../views/administrador/agregar_medico.php?status=" . $status . "&msg=" . urlencode($mensaje));
+            header("Location: ../controllers/admin.controller.php?view=agregar_medico&status=" . $status . "&msg=" . urlencode($mensaje));
             exit;
         }
         break;

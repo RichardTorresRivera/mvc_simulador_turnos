@@ -1,19 +1,4 @@
-<?php
-session_start();
-$mensaje = '';
-$status_class = '';
-if (isset($_GET['msg'])) {
-    $mensaje = htmlspecialchars($_GET['msg']);
-    if (isset($_GET['status']) && $_GET['status'] === 'success') {
-        $status_class = 'alert alert-success';
-    } else {
-        $status_class = 'alert alert-danger';
-    }
-}
-?>
-
 <?php include __DIR__ . '/../header.php' ?>
-
 
 <header>
     <?php include 'navbar_admin.php'; ?>
@@ -41,7 +26,7 @@ if (isset($_GET['msg'])) {
             <div class="col-12 d-flex flex-column align-items-center justify-content-center">
 
                 <div class="card" style="width: 25rem;">
-                    <form method="POST" action="../../controllers/medico.controller.php">
+                    <form method="POST" action="../controllers/medico.controller.php">
                         <input type="hidden" name="action" value="agregar">
                         
                         <div class="mb-2 p-3">
@@ -63,7 +48,7 @@ if (isset($_GET['msg'])) {
                 <div class="row my-5">
                     <div class="col-12">
                         <div class="mb-2 p-3 text-center">
-                            <button type="button" class="btn btn-danger" onclick="window.location.href='admin_panel.php'">
+                            <button type="button" class="btn btn-danger" onclick="window.location.href='admin.controller.php'">
                                 Volver al panel de turnos
                             </button>
                         </div>
