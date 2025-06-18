@@ -1,9 +1,9 @@
 <?php
 // config.php
 define('DB_HOST', 'sql10.freesqldatabase.com');
-define('DB_NAME', 'sql10777169');
-define('DB_USER', 'sql10777169');
-define('DB_PASS', 'yq2ShscvxW');
+define('DB_NAME', 'sql10785579');
+define('DB_USER', 'sql10785579');
+define('DB_PASS', 'XrMRhQE3KZ');
 define('DB_PORT', 3306);
 
 function conectarDB() {
